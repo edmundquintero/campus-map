@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2pE5K_4bYyvZtmy-_NVDZla-2W6cK6CI&sensor=true">
+
+</script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+<script src="custom.js"></script>
+<link href="custom.css" rel="stylesheet"></link>
+
+</head>
+<body>
+    <div id="map-sidebar">
+        <div id="links-container">
+            <div id="links-header">
+                <h1>Locations <a id="add_location" href="#">+</a></h1>
+            </div>
+            <div id="new-location-form">
+                <div class="new-location-form-field">
+                    <label for="location-form-title">Location Title</label>
+                    <input type="text" id="location-form-title" name="location-form-title">
+                </div>
+                <div class="new-location-form-field">
+                    <label for="location-form-street">Street</label>
+                    <input type="text" id="location-form-street" name="location-form-street">
+                </div>
+                <div class="new-location-form-field">
+                    <label for="location-form-city">City</label>
+                    <input type="text" id="location-form-city" name="location-form-city">
+                </div>
+                <div class="new-location-form-field">
+                    <label for="location-form-state">State</label>
+                    <input type="text" id="location-form-state" name="location-form-state">
+                </div>
+                <div class="new-location-form-field">
+                    <label for="location-form-zip">Zip Code</label>
+                    <input type="text" id="location-form-zip" name="location-form-zip">
+                </div>
+                <div id="location-form-buttons">
+                    <button id="location-form-add" name="Add">Add</button>
+                    <button id="location-form-cancel" name="Cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+        <div id="directions_search"></div>
+    </div>
+    <div id="map-content">
+        <div id="map_header">
+            <div id="campus_address"></div>
+        </div>
+        <div id="map-holder">
+            <div id="map_canvas"></div>
+        </div>
+        <div id="directionsPanel-content">
+            <div id="directionsPanel-buttons">
+                <a id="directions_close" href="javascript:void(0);">Open Directions</a>
+            </div>
+            <div id="directionsPanel-wrapper">
+                <div id="directionsPanel">No Starting Address</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
