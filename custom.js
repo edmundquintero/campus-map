@@ -8,7 +8,7 @@ $(function(){
 
     /* PLONE.... */
     // Plone strips out html tags because the editor only allows text in the body.... thank you Plone.
-    $('#directions_search').append('<div id="label">Starting Address</div><div id="input"><input id="map_start_address" type="textfield" placeholder="enter address" ></div><button id="get_directions" >Get Directions</button>');
+    $('#directions_search').append('<div id="label">Starting Address</div><div id="input"><input id="map_start_address" type="textfield" placeholder="Enter Address" ></div><button id="get_directions" >Get Directions</button>');
 
 
     // Directions methods
@@ -37,8 +37,8 @@ $(function(){
             $('#directionsPanel').hide(1, function(){
                 $('#directionsPanel-buttons a#directions_close').html('Open Directions');
                 var map_start = $('input#map_start_address').val();
-                if(map_start == ''){
-                    $('#directionsPanel').html('No Start Location');
+                if( !map_start ){
+                    $('#directionsPanel').html('No Starting Address');
                     directionsDisplay.setDirections({routes:[]});
                 }else{
                     $('#directionsPanel').html('');
@@ -240,31 +240,19 @@ $(function(){
 
 
     $('#links-container').append(campusCollectionView.el);
-    // The create event tells JQuery Mobile that there are data- tags to be 
-    // interpreted in the backbone generated content.
-    // $('body').trigger('create');
 
-/********************************
- *   New Location Form Events   *
- ********************************/
-$('#add_location').on('click', newLocationForm);
-$('#location-form-cancel').on('click', function(e){
-    $('#add_location').trigger('click');
-});
-$('#location-form-add').on('click', function(e){
-    $('#add_location').trigger('click');
-});
-
-//*******************************
-
+// Listener for 'enter' event after address is entered
+//   triggers click on get_directions
 $("#map_start_address").keyup(function(event){
     if(event.keyCode == 13){
-        $("button#get_directions").click();
+        $("button#get_directions").trigger('click');
     }
 });
-$('button#get_directions').click(function(){
+
+$('button#get_directions').on('click', function(){
     campusCollectionView.changeDirections($('li.active a').attr('id'));
 });
+
 
 $('#directionsPanel-buttons a#directions_close').on('click', function(){
     if($('#directionsPanel').is(':visible')){
